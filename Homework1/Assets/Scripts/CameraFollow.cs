@@ -16,8 +16,9 @@ public class CameraFollow : MonoBehaviour
     }
 
     void LateUpdate()
-    { 
+    {
         Vector3 desiredPosition = followedObjectTransform.position + offsetFromPlayer;
-        transform.position = desiredPosition;
+        Vector3 smoothPosition = Vector3.Lerp(transform.position, desiredPosition, speed);
+        transform.position = smoothPosition;
     }
 }

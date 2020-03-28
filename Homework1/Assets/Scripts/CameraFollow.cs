@@ -15,7 +15,7 @@ public class CameraFollow : MonoBehaviour
         offsetFromPlayer = transform.position - followedObjectTransform.transform.position;
     }
 
-    void LateUpdate()
+    void FixedUpdate()
     {
         Vector3 desiredPosition = followedObjectTransform.position + offsetFromPlayer;
         Vector3 smoothPosition = Vector3.Lerp(transform.position, desiredPosition, speed);

@@ -15,18 +15,16 @@ public class JumpingCube : MonoBehaviour
 
     void Update()
     {
-        if (isGrounded)
+
+        Vector3 moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
+        if (isGrounded && Input.GetKey(KeyCode.Space))
         {
-            Vector3 moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0f, 0f);
-            if (Input.GetKey(KeyCode.Space))
-            {
-                rigidBody.velocity = new Vector3(0f, 5f, 0f) + moveDirection;
-                isGrounded = false;
-            }
-            else
-            {
-                transform.position += moveDirection;
-            }
+            rigidBody.velocity = new Vector3(0f, 5f, 0f) + moveDirection;
+            isGrounded = false;
+        }
+        else
+        {
+            transform.position += moveDirection;
         }
     }
 
